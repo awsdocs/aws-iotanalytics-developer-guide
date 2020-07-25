@@ -1,11 +1,6 @@
-## My Project
+## AWS IoT Analytics
 
-TODO: Fill this README out!
-
-Be sure to:
-
-* Change the title in this README
-* Edit your repository description on GitHub
+The open source version of the AWS IoT Analytics docs. You can submit feedback and requests for changes by submitting issues in this repo or by making proposed changes and submitting a pull request.
 
 ## License Summary
 

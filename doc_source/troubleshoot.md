@@ -83,13 +83,13 @@ Make sure the region and channel name used in the rule are correct\. To ensure y
 **Q: How do I correctly configure my notebook instance to use the IotAnalytics Service?**
 + Follow these steps to make sure the IAM role you are using to create the notebook instance has the required permissions:
 
-  1. Go to the Amazon SageMaker console and create a notebook instance\.
+  1. Go to the SageMaker console and create a notebook instance\.
 
   1. Fill in the details and choose **create a new role**\. Make a note of the role ARN\.
 
-  1. Create the notebook instance\. This also creates a role that Amazon SageMaker can use\. 
+  1. Create the notebook instance\. This also creates a role that SageMaker can use\. 
 
-  1. Go to the IAM console and modify the newly created Amazon SageMaker role\. When you open that role, it should have a managed policy\. 
+  1. Go to the IAM console and modify the newly created SageMaker role\. When you open that role, it should have a managed policy\. 
 
   1. Click **add inline policy**, choose **IoTAnalytics** as the service, and under read permission, select **GetDatasetContent**\.
 

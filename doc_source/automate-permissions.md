@@ -1,8 +1,8 @@
 # Permissions<a name="automate-permissions"></a>
 
-You must create two roles\. One role grants permission to launch a Amazon SageMaker instance in order to containerize a notebook\. Another role is needed to execute a container\. 
+You must create two roles\. One role grants permission to launch a SageMaker instance in order to containerize a notebook\. Another role is needed to execute a container\. 
 
-You can create the first role automatically or manually\. If you create your new Amazon SageMaker instance with the AWS IoT Analytics console, you are given the option to automatically create a new role which grants all privileges necessary to execute Amazon SageMaker instances and containerize notebooks\. Or, you may create a role with these privileges manually\. To do this, create a role with the `AmazonSageMakerFullAccess` policy attached and add the following policy\.
+You can create the first role automatically or manually\. If you create your new SageMaker instance with the AWS IoT Analytics console, you are given the option to automatically create a new role which grants all privileges necessary to execute SageMaker instances and containerize notebooks\. Or, you may create a role with these privileges manually\. To do this, create a role with the `AmazonSageMakerFullAccess` policy attached and add the following policy\.
 
 ```
 {

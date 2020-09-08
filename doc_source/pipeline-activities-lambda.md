@@ -4,7 +4,7 @@ You can use a `lambda` activity to perform more complex processing on the messag
 
 The AWS Lambda function used in this activity must receive and return an array of JSON objects\. In the following example, the Lambda function modifies and then returns its `event` parameter\.
 
-The `batchSize` determines how many messages your Lambda function receives on each invocation\. When you set it, keep in mind that a Lambda function has a maximum timeout of 5 minutes\. So the Lambda function must be able to process all messages in the batch in less than 5 minutes\.
+The `batchSize` determines how many messages your Lambda function receives on each invocation\. When you set it, keep in mind that a Lambda function has a maximum timeout of 900 seconds\. So the Lambda function must be able to process all messages in the batch in less than 900 seconds\.
 
 ```
 {

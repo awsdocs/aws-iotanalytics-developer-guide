@@ -175,7 +175,7 @@ There are three main files you need for this tutorial\. Their names and contents
    }
    ```
 
-1. Create a role that gives access permissions to Amazon SageMaker and AWS IoT Analytics, using the file `role1.json` that you downloaded\.
+1. Create a role that gives access permissions to SageMaker and AWS IoT Analytics, using the file `role1.json` that you downloaded\.
 
    ```
    aws iam create-role --role-name container-execution-role --assume-role-policy-document file://role1.json

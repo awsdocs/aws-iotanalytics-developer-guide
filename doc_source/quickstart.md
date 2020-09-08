@@ -263,15 +263,15 @@ You will want to create an AWS IoT Events input that recognizes the fields you a
 
 Jupyter Notebook  
 [Jupyter Notebook](https://jupyter.org/) is an open source solution for advanced analyses and ad\-hoc data exploration\. Notebooks enable you to use templates and scripting language, typically Python, to apply different transformations or normalizations to the data, aggregate metrics, and analyze and visualize data using data science libraries\. You can even apply more complex analytics and machine learning, such as k\-means clustering, to your data using these notebooks\.  
-AWS IoT Analytics uses Amazon SageMaker notebook instances to host its Jupyter notebooks\. Before you create a notebook instance, you must create a relationship between AWS IoT Analytics and Amazon SageMaker:  
+AWS IoT Analytics uses SageMaker notebook instances to host its Jupyter notebooks\. Before you create a notebook instance, you must create a relationship between AWS IoT Analytics and SageMaker:  
 
-1. Navigate to the [Amazon SageMaker console](https://console.aws.amazon.com/sagemaker/) and create a notebook instance:
+1. Navigate to the [SageMaker console](https://console.aws.amazon.com/sagemaker/) and create a notebook instance:
 
    1. Fill in the details, and then choose **Create a new role**\. Make a note the role ARN\.
 
    1. Create a notebook instance\.
 
-1. Go to the [IAM console](https://console.aws.amazon.com/iam/) and modify the Amazon SageMaker role:
+1. Go to the [IAM console](https://console.aws.amazon.com/iam/) and modify the SageMaker role:
 
    1. Open the role\. It should have one managed policy\.
 
@@ -287,7 +287,7 @@ AWS IoT Analytics uses Amazon SageMaker notebook instances to host its Jupyter n
 1. On the **Selected method** page, choose **Blank Notebook**\.  
 ![\[Screenshot of "Create notebooks" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/notebook-select-method.png)
 
-1. On the **Set up notebook** page, enter a name for the notebook\. In **Select data set sources**, choose **Select**, and then choose the data set you created earlier\. In **Select a Notebook Instance**, choose **Select**, and then choose the notebook instance you created in Amazon SageMaker\. Choose **Create Notebook**\.  
+1. On the **Set up notebook** page, enter a name for the notebook\. In **Select data set sources**, choose **Select**, and then choose the data set you created earlier\. In **Select a Notebook Instance**, choose **Select**, and then choose the notebook instance you created in SageMaker\. Choose **Create Notebook**\.  
 ![\[Screenshot of your notebook in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/notebook-setup.png)
 
 1. On the **Notebooks** page, use the triangles to open your notebook instance and the **IoTAnalytics** directory\. Use the links to explore your data in Jupyter Notebook\.  

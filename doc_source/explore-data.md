@@ -44,4 +44,4 @@ AWS IoT Analytics provides direct integration with [Amazon QuickSight](https://a
 
 ## Jupyter Notebook<a name="jupyter-noteboo"></a>
 
-AWS IoT Analytics data sets can also be directly consumed by Jupyter Notebook in order to perform advanced analytics and data exploration\. Jupyter Notebook is an open source solution\. You can install and download from [http://jupyter\.org/install\.html](https://jupyter.org/install.html)\. Additional integration with Amazon SageMaker, an Amazon hosted notebook solution, is also available\. 
+AWS IoT Analytics data sets can also be directly consumed by Jupyter Notebook in order to perform advanced analytics and data exploration\. Jupyter Notebook is an open source solution\. You can install and download from [http://jupyter\.org/install\.html](https://jupyter.org/install.html)\. Additional integration with SageMaker, an Amazon hosted notebook solution, is also available\. 

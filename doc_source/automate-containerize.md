@@ -4,24 +4,24 @@ This section includes information about how to build a Docker container using a 
 
 One option to perform advanced analytical functions is to use a [Jupyter Notebook](https://jupyter.org/)\. Jupyter Notebook provides powerful data science tools that can perform machine learning and a range of statistical analyses\. For more information, see [Notebook templates](https://docs.aws.amazon.com/iotanalytics/latest/userguide/quickstart.html#aws-iot-analytics-notebook-templates)\. \(Note that we do not currently support containerization inside JupyterLab\.\) You can package your Jupyter Notebook and libraries into a container that periodically runs on a new batch of data as it is received by AWS IoT Analytics during a delta time window you define\. You can schedule an analysis job that uses the container and the new, segmented data captured within the specified time window, then stores the job's output for future scheduled analytics\. 
 
-If you have created a Amazon SageMaker Instance using the AWS IoT Analytics console after August 23, 2018, then the installation of the containerization extension has been done for you automatically [and you can begin creating a containerized image](https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate.html#aws-iot-analytics-automate-containerized-image)\. Otherwise, follow the steps listed in this section to enable notebook containerization on your Amazon SageMaker instance\. In what follows, you modify your Amazon SageMaker Execution Role to allow you to upload the container image to Amazon EC2 and you install the containerization extension\.
+If you have created a SageMaker Instance using the AWS IoT Analytics console after August 23, 2018, then the installation of the containerization extension has been done for you automatically [and you can begin creating a containerized image](https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate.html#aws-iot-analytics-automate-containerized-image)\. Otherwise, follow the steps listed in this section to enable notebook containerization on your SageMaker instance\. In what follows, you modify your SageMaker Execution Role to allow you to upload the container image to Amazon EC2 and you install the containerization extension\.
 
 ## Enable containerization of notebook instances not created via AWS IoT Analytics console<a name="automate-containerize-notebook"></a>
 
-We recommend that you create a new Amazon SageMaker instance via the AWS IoT Analytics console instead of following these steps\. New instances automatically support containerization\.
+We recommend that you create a new SageMaker instance via the AWS IoT Analytics console instead of following these steps\. New instances automatically support containerization\.
 
-If you restart your Amazon SageMaker instance after enabling containerization as shown here, you won't have to re\-add the IAM roles and policies, but you must re\-install the extension, as shown in the final step\.
+If you restart your SageMaker instance after enabling containerization as shown here, you won't have to re\-add the IAM roles and policies, but you must re\-install the extension, as shown in the final step\.
 
-1. To grant your notebook instance access to Amazon ECS, select your Amazon SageMaker instance on the Amazon SageMaker page:   
+1. To grant your notebook instance access to Amazon ECS, select your SageMaker instance on the SageMaker page:   
 ![\[Containerize a notebook in AWS IoT Analytics.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/containerize01.png)
 
-1. Under **IAM role ARN**, choose the Amazon SageMaker Execution Role\.  
+1. Under **IAM role ARN**, choose the SageMaker Execution Role\.  
 ![\[Containerize a notebook in AWS IoT Analytics.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/containerize02.png)
 
 1. Choose **Attach Policy**, then define and attach the policy shown in [Permissions](https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate.html#aws-iot-analytics-automate-permissions)\. If the `AmazonSageMakerFullAccess` policy is not already attached, attach it as well\.  
 ![\[Containerize a notebook in AWS IoT Analytics.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/containerize03.png)
 
-You also must download the containerization code from Amazon S3 and install it on your notebook instance, The first step is to access the Amazon SageMaker instance's terminal\.
+You also must download the containerization code from Amazon S3 and install it on your notebook instance, The first step is to access the SageMaker instance's terminal\.
 
 1. Inside Jupyter, choose **New**\.  
 ![\[Containerize a notebook in AWS IoT Analytics.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/containerize04.png)
@@ -29,7 +29,7 @@ You also must download the containerization code from Amazon S3 and install it o
 1. In the menu that appears, choose **Terminal**\.  
 ![\[Containerize a notebook in AWS IoT Analytics.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/containerize05.png)
 
-1. Inside the terminal, enter the following commands to download the code, unzip it, and install it\. Note that these commands kill any processes being run by your notebooks on this Amazon SageMaker instance\.  
+1. Inside the terminal, enter the following commands to download the code, unzip it, and install it\. Note that these commands kill any processes being run by your notebooks on this SageMaker instance\.  
 ![\[Containerize a notebook in AWS IoT Analytics.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/containerize06.png)
 
    ```
@@ -50,7 +50,7 @@ You also must download the containerization code from Amazon S3 and install it o
 
 ## Update your notebook containerization extension<a name="automate-update-notebook"></a>
 
-If you created your Amazon SageMaker Instance via the AWS IoT Analytics console after August 23, 2018, then the containerization extension was installed automatically\. You can update the extension by restarting your instance from Amazon SageMaker Console\. If you installed the extension manually, then you may update it by re\-running the terminal commands listed in Enable Containerization Of Notebook Instances Not Created Via AWS IoT Analytics Console\. 
+If you created your SageMaker Instance via the AWS IoT Analytics console after August 23, 2018, then the containerization extension was installed automatically\. You can update the extension by restarting your instance from SageMaker Console\. If you installed the extension manually, then you may update it by re\-running the terminal commands listed in Enable Containerization Of Notebook Instances Not Created Via AWS IoT Analytics Console\. 
 
 ## Create a containerized image<a name="automate-update-notebook-image"></a>
 

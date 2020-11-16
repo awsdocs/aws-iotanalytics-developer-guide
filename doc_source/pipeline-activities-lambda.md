@@ -20,12 +20,14 @@ The `batchSize` determines how many messages your Lambda function receives on ea
 You must add a policy to grant AWS IoT Analytics permission to invoke your Lambda function\. Run the following command and replace *function\-name* with the name of your Lambda function\.
 
 ```
-aws lambda add-permission --function-name function-name --action lambda:InvokeFunction 
-   --statement-id iotanalytics --principal iotanalytics.amazonaws.com
-  
-# Output
+aws lambda add-permission --function-name function-name --action lambda:InvokeFunction --statement-id iotanalytics --principal iotanalytics.amazonaws.com
+```
+
+The command returns the following:
+
+```
 {
-    "Statement": "{\"Sid\":\"iotanalytics\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"iotanalytics.amazonaws.com\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:aws-region:account-id:function:function-name\"}"
+    "Statement": "{\"Sid\":\"iotanalytics\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"iotanalytics.amazonaws.com\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:aws-region:aws-region:function:mfunction-name\"}"
 }
 ```
 

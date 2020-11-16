@@ -8,7 +8,7 @@ See the following section to troubleshoot errors and find and possible solutions
 + [Why is there no data in my data store?](#datastore-no-data)
 + [Why does my data set just show :code:`\_dt`?](#dataset-no-data)
 + [Why can't I create notebooks in an instance?](#notebook-instance)
-+ [Why am I not seeing my datasets in QuickSight?](#sq-no-dataset)
++ [Why am I not seeing my datasets in Amazon QuickSight?](#sq-no-dataset)
 + [Why am I not seeing the containerize button on my existing Jupyter Notebook?](#containerization-jupyter-notebook)
 + [Why is my containerization plugin installation failing?](#containerization-installation-fails)
 + [Why is my containerization plugin throwing an error?](#containerization-error)
@@ -105,8 +105,8 @@ Make sure the region and channel name used in the rule are correct\. To ensure y
 + Make sure you create a notebook instance with the correct IAM policy\. \(Follow the steps in the previous question\.\)
 + Make sure the notebook instance is in the "In Service" state\. When you create an instance, it starts in a "Pending" state\. It usually takes about five minutes for it to go into the "In Service" state\. If the notebook instance goes into the "Failed" state after about five minutes, check the permissions again\.
 
-## Why am I not seeing my datasets in QuickSight?<a name="sq-no-dataset"></a>
-+ Follow these steps to make sure you have given QuickSight read permission for data set content:
+## Why am I not seeing my datasets in Amazon QuickSight?<a name="sq-no-dataset"></a>
++ Follow these steps to make sure you have given Amazon QuickSight read permission for data set content:
 
   1. Click the icon in the upper\-right corner \(mentioning the account name\) and choose **Manage QuickSight**
 

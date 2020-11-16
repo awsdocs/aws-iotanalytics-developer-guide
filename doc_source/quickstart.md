@@ -3,7 +3,7 @@
 This section show you how to use the AWS IoT Analytics console to collect, store, process, and query your device data\. Follow the instructions below to see details of how to create a channel, data store, pipeline and data set, and how to use the AWS IoT Core console to send messages that will be ingested into AWS IoT Analytics
 
 **Note**  
-Be aware as you enter the names of AWS IoT Analytics entities \(channel, data set, data store, and pipeline\) in the steps that follow, that any uppercase letters you use are automatically changed to lowercase by the system\. The names of entities must start with a lowercase letter and contain only lowercase letters, underscores and digits
+Be aware as you enter the names of AWS IoT Analytics entities \(channel, data set, data store, and pipeline\) in the steps that follow, that any uppercase letters you use are automatically changed to lowercase by the system\. The names of entities must start with a lowercase letter and contain only lowercase letters, underscores and digits\.
 
 The AWS IoT Analytics console also has a **Quick start** feature that enables you to create a channel, data store, pipeline and data set with one click\. Look for this page when you enter the AWS IoT Analytics console\.
 

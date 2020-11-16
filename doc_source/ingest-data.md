@@ -60,7 +60,7 @@ The contents of the `pd.json` file should look like the following\.
 }
 ```
 
-### Creating a AWS IoT rule<a name="create-iam-rule"></a>
+### Creating a AWS IoT rule<a name="create-iot-rule"></a>
 
 Create an AWS IoT rule that sends messages to your channel\.
 

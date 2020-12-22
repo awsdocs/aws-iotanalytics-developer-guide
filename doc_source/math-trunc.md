@@ -17,4 +17,4 @@ Examples:
 | --- | --- | --- | 
 |  `Int`  |  `Int`  |  The source value\.  | 
 |  `Int` / `Decimal` / `String`  |  `Int` / `Decimal`  |  The first argument is truncated to the length described by the second argument\. The second argument, if not an `Int`, will be rounded down to the nearest `Int`\. Strings are converted to `Decimal` values\. If the string conversion fails, the result is `Undefined`\.  | 
-|  Other Value  |   |  Undefined\.  | 
+|  Other Value  |    |  Undefined\.  | 

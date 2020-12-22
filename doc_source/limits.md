@@ -11,6 +11,7 @@ To request a service quota increase, submit a support case in the [Support cente
 | --- | --- | --- | 
 |  Channel  |  50 per account  |  Yes  | 
 |  Data store  |  25 per account  |  Yes  | 
+|  Column  |  100 per schema  |  Yes  | 
 |  Pipeline  |  100 per account  |  Yes  | 
 |  Activities  |  25 per pipeline  |  No  | 
 |  Dataset  |  100 per account  |  Yes  | 

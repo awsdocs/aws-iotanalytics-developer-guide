@@ -27,9 +27,9 @@ You use the ARN of this role later when you call the AWS IoT Analytics `PutLoggi
     "Statement": [
         {
             "Effect": "Allow",
-            "Principal": [
+            "Principal": {
                 "Service": "iotanalytics.amazonaws.com"
-            ],
+            },
             "Action": "sts:AssumeRole"
         }
     ]
@@ -59,7 +59,7 @@ You use the ARN of this role later when you call the AWS IoT Analytics `PutLoggi
 In addition, you must give AWS IoT Analytics permission to put log events to Amazon CloudWatch using the Amazon CloudWatch command:
 + [PutResourcePolicy](https://docs.aws.amazon.com/cli/latest/reference/logs/put-resource-policy.html)
 
-  `aws logs put-reference-policy ...`
+  `aws logs put-resource-policy ...`
 
 Use the following resource policy:
 

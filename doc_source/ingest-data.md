@@ -107,7 +107,7 @@ For example, `{"temp_01": 29}` or `{"_temp_01": 29}` are valid, but `{"temp-01":
 
    ```
    {
-       "message": "Hello from AWS IoT console"
+       "message": "Hello from the IoT console"
    }
    ```
 

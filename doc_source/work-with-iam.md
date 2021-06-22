@@ -24,6 +24,7 @@ To specify multiple actions in a single statement, separate them with commas as 
 "Action": [
     "iotanalytics:action1",
     "iotanalytics:action2"
+    ]
 ```
 
 You can specify multiple actions using wildcards \(\*\)\. For example, to specify all actions that begin with the word `Describe`, include the following action\.
@@ -90,7 +91,7 @@ To view examples of AWS IoT Analytics identity\-based policies, see [Examples](#
 
 ## AWS IoT Analytics resource\-based policies<a name="iam-resource-based-policies"></a>
 
-AWS IoT Analytics does not support resource\-based policies\. To view an example of a detailed resource\-based policy page, see [https://docs\.aws\.amazon\.com/lambda/latest/dg/access\-control\-resource\-based\.html](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html)\.
+AWS IoT Analytics does not support resource\-based policies\. To view an example of a detailed resource\-based policy page, see [Using resource\-based policies for AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *AWS Lambda Developer Guide*\. 
 
 ## Authorization based on AWS IoT Analytics tags<a name="iam-tags"></a>
 

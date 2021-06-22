@@ -1,13 +1,13 @@
-# AWS IoT Analytics console quickstart guide<a name="quickstart"></a>
+# Getting started with AWS IoT Analytics \(console\)<a name="quickstart"></a>
 
-This section show you how to use the AWS IoT Analytics console to collect, store, process, and query your device data\. Follow the instructions below to see details of how to create a channel, data store, pipeline and data set, and how to use the AWS IoT Core console to send messages that will be ingested into AWS IoT Analytics
+Use this tutorial to create the AWS IoT Analytics resources \(also known as components\) that you need to discover useful insights about your IoT device data\.
 
-**Note**  
-Be aware as you enter the names of AWS IoT Analytics entities \(channel, data set, data store, and pipeline\) in the steps that follow, that any uppercase letters you use are automatically changed to lowercase by the system\. The names of entities must start with a lowercase letter and contain only lowercase letters, underscores and digits\.
+**Notes**  
+If you enter uppercase characters in the following tutorial, AWS IoT Analytics automatically changes them to lowercase\.
+The AWS IoT Analytics console has a one\-click getting started feature to create a channel, pipeline, data store, and dataset\. You can find this feature when you sign in to the AWS IoT Analytics console\.  
+This tutorial walks you through each step to create your AWS IoT Analytics resources\.
 
-The AWS IoT Analytics console also has a **Quick start** feature that enables you to create a channel, data store, pipeline and data set with one click\. Look for this page when you enter the AWS IoT Analytics console\.
-
-![\[Screenshot of the quick start feature in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/console-quickstart.png)
+Follow the instructions below to create an AWS IoT Analytics channel, pipeline, data store, and dataset\. The tutorial also shows you how to use the AWS IoT Core console to send messages that will be ingested into AWS IoT Analytics\.
 
 **Topics**
 + [Sign in to the AWS IoT Analytics console](#quickstart-console-signin)
@@ -15,207 +15,277 @@ The AWS IoT Analytics console also has a **Quick start** feature that enables yo
 + [Create a data store](#quickstart-create-datastore)
 + [Create a pipeline](#quickstart-create-pipeline)
 + [Create a dataset](#quickstart-create-dataset)
-+ [Send an AWS IoT message](#send-iotcore-messages)
-+ [Check the progress of IoT messages](#check-iotcore-messages)
++ [Send message data with AWS IoT](#send-iotcore-messages)
++ [Check the progress of AWS IoT messages](#check-iotcore-messages)
 + [Access the query results](#access-query-results)
 + [Explore your data](#explore-data)
 + [Notebook templates](#notebook-templates)
 
 ## Sign in to the AWS IoT Analytics console<a name="quickstart-console-signin"></a>
 
-If you don't have an AWS account, create one\.
+To get started, you must have an AWS account\. If you already have an AWS account, navigate to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2)\.
 
-1. To create an AWS account, navigate to the [https://aws.amazon.com/](https://aws.amazon.com/) and choose **Create AWS Account\.**
+If you don't have an AWS account, follow these steps to create one\.
 
-1. Follow the online instructions\. Part of the sign\-up procedure involves receiving a phone call and entering a PIN using your phone's keypad\.
+**To create an AWS account**
 
-1. Sign in to the AWS Management Console and navigate to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/)\.
+1. Open [https://portal\.aws\.amazon\.com/billing/signup](https://portal.aws.amazon.com/billing/signup)\.
+
+1. Follow the online instructions\.
+
+   Part of the sign\-up procedure involves receiving a phone call and entering a verification code on the phone keypad\.
+
+1. Sign in to the AWS Management Console and navigate to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2)\.
 
 ## Create a channel<a name="quickstart-create-channel"></a>
 
-Incoming messages are sent to a channel\.
+A channel collects and archives raw, unprocessed, and unstructured IoT device data\. Follow these steps to create your channel\.
 
-1. On the AWS IoT Analytics console landing page, in the **Prepare your data with IoT Analytics** section, under **Channels**, choose **View channels**\.  
-![\[Screenshot of the "Prepare your data with AWS IoT Analytics".\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/prepare-your-data.png)
+**To create a channel**
 
-1. On the **Collect device messages** page, choose **Create a channel**\.  
-![\[Screenshot of the "Collect device messages" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-channel.png)
+1. In the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2), in the **Prepare your data with AWS IoT Analytics** section, choose **View channels**\.  
+![\[Screenshot of "Prepare your data with AWS IoT Analytics".\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/prepare-your-data.png)
+**Tip**  
+You can also choose **Channels** from the navigation pane\.
 
-1. On the **Set ID, source, and data retention period** page, enter a channel ID\.  
-![\[Screenshot of "Set ID" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-channel-entry.png)
+1. On the **Channels** page, choose **Create channel**\.
 
-1. Under **Choose the storage type**, choose **Service\-managed store**\.  
-![\[Screenshot of "Choose the storage type" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/choose-storage-type.png)
+1. On the **Specify channel details** page, enter the details about your channel\.
 
-1. Choose **Next**  
-![\[Screenshot of "Tags" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-channel-entry2.png)
+   1. Enter a channel name that is unique and that you can easily identify\.
 
-1. Enter an AWS IoT Core \(MQTT\) topic filter\. Make a note of the topic filter you entered here, because you need it in a later step in order to create a message that gets picked up by your channel\. This example uses a topic filter with a wildcard, `"update/environment/#"`\.  
-![\[Screenshot of "AWS IoT Core topic filter" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-channel-entry3.png)
+   1. \(Optional\) For **Tags**, add one or more custom tags \(key\-value pairs\) to your channel\. Tags can help you identify your resources that you create for AWS IoT Analytics\.
 
-1. In the **IAM role name** area, choose **Create new**\. In the **Create a new role** window, enter a **Name** for the role, then choose **Create role**\. This automatically creates a role with an appropriate policy attached to it\.  
-![\[Screenshot of "Create a new role" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-new-role.png)
+   1. Choose **Next**\.
 
-1. Choose **Create channel**\.  
-![\[Screenshot of "Create Channel" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-channel-entry4.png)
+1. AWS IoT Analytics stores your raw, unprocessed IoT device data in an Amazon Simple Storage Service \(Amazon S3\) bucket\. You can choose your own Amazon S3 bucket, which you can access and manage, or AWS IoT Analytics can manage the Amazon S3 bucket for you\. 
 
-   You successfully created a channel\.
+   1. In this tutorial, for **Storage type**, choose **Service managed storage**\.
+
+   1. For **Choose how long to store your raw data**, choose **Indefinitely**\.
+
+   1. Choose **Next**\.
+
+1. On the **Configure source** page, enter information for AWS IoT Analytics to collect message data from AWS IoT Core\.
+
+   1. Enter an AWS IoT Core topic filter, for example, `update/environment/dht1`\. Later in this tutorial, you will use this topic filter to send message data to your channel\. 
+
+   1. Choose an IAM role or create a new role\.
+
+   1. Choose **Next**\.
+
+1. Review your choices and then choose **Create channel**\.
+
+1. Verify that your new channel appears on the **Channels** page\.
 
 ## Create a data store<a name="quickstart-create-datastore"></a>
 
-A data store receives and stores your messages\. You can create multiple data stores to store data according to your needs\. For this example, you create a single data store to receive your AWS IoT messages\.
+A data store receives and stores your message data\. A data store isn't a database\. Instead, a data store is a scalable and queryable repository in an Amazon S3 bucket\. You can use multiple data stores for messages from different devices or locations\. Or, you can filter message data depending on your pipeline configuration and requirements\. 
 
-1. On the **Channels** page, in the left navigation pane, choose **Data stores**\.  
-![\[Screenshot of "Channels" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-channel-return.png)
+Follow these steps to create a data store\.
 
-1. On the **Create a data store** page, choose a data store\.  
-![\[Screenshot of "Create a data store" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-datastore.png)
+**To create a data store**
 
-1. Enter an **ID** for your data store\. Under **Choose the storage type**, choose **Service\-managed store**, then choose **Create data store**\.  
-![\[Screenshot of "ID" and "Choose the storage type" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-datastore-entry.png)  
-![\[Screenshot of "Configure how long you want to keep your processed data" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-datastore-entry2.png)
+1. In the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2), in the **Prepare your data with AWS IoT Analytics** section, choose **View data stores**\.
 
-   You have successfully created a data store\.
+1. On the **Data stores** page, choose **Create data store**\.
+
+1. On the **Specify data store details** page, enter basic information about your data store\.
+
+   1. For **Data store ID**, enter a unique data store ID\. You can't change this ID after you create it\.
+
+   1. \(Optional\) For **Tags**, choose **Add new tag** to add one or more custom tags \(key\-value pairs\) to your data store\. Tags can help you identify your resources that you create for AWS IoT Analytics\.
+
+   1. Choose **Next**\.
+
+1. On the **Configure storage type** page, specify how to store your data\.
+
+   1. For **Storage type**, choose **Service managed storage**\. 
+
+   1. For **Configure how long you want to keep your processed data**, choose **Indefinitely**\.
+
+   1. Choose **Next**\.
+
+1. AWS IoT Analytics data stores support JSON and Parquet file formats\. For your data store data format, choose **JSON** or **Parquet**\. See [File formats](iotanalytics-schema.md) for more information about AWS IoT Analytics supported file types\.
+
+   Choose **Next**\.
+
+1. \(Optional\) AWS IoT Analytics supports custom partitions in your data store so you can query on pruned data to improve latency\. For more information about supported custom partitions, see [Custom partitions](custom-partitioning.md)\.
+
+   Choose **Next**\.
+
+1. Review your choices and then choose **Create data store**\.
+
+1. Verify that your new data store appears on the **Data stores** page\.
 
 ## Create a pipeline<a name="quickstart-create-pipeline"></a>
 
-To connect a channel to a data store, you need to create a pipeline\. The simplest possible pipeline contains no activities other than specifying the channel that collects the data and identifying the data store to which the messages are sent\. For more information, see [Pipeline activities](https://docs.aws.amazon.com/iotanalytics/latest/userguide/pipeline-activities.html#aws-iot-analytics-pipeline-activities)\.
+You must create a pipeline to connect a channel to a data store\. A basic pipeline only specifies the channel that collects the data and identifies the data store to which the messages are sent\. For more information, see [Pipeline activities](https://docs.aws.amazon.com/iotanalytics/latest/userguide/pipeline-activities.html#aws-iot-analytics-pipeline-activities)\.
 
-For this example, you create a pipeline that does nothing other than connect a channel to a data store\. You can see how raw data flows to the data store\. Later, you can introduce pipeline activities to process this data\. 
+For this tutorial, you create a pipeline that only connects a channel to a data store\. Later, you can add pipeline activities to process this data\. 
 
-1. On the ** Data stores** page, in the left navigation pane, choose **Pipelines**\.  
-![\[Screenshot of "Data stores" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-datastore-return.png)
+Follow these steps to create a pipeline\.
 
-1. On the **Process messages with pipelines** page, choose **Create a pipeline**\.  
-![\[Screenshot of "Process messages with pipelines" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-pipeline.png)
+**To create a pipeline**
 
-1. Enter a **Pipeline ID**\. In **Pipeline source**, choose **Edit**, then choose the channel that you created before, and then choose **Next**\.  
-![\[Screenshot of "Set pipeline ID and source" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-pipeline-enter-id.png)
+1. In the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2), in the **Prepare your data with AWS IoT Analytics** section, choose **View pipelines**\.
+**Tip**  
+You can also choose **Pipelines** from the navigation pane\.
 
-1. On the **Set attributes of your messages** page, enter an attribute name, choose a type from the list, and enter an example value, then choose **Add new**\. Repeat this for as many attributes as you want\. When done, choose **Next**\.   
-![\[Screenshot of "Set attributes of your messages" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-pipeline-set-attributes.png)
+1. On the **Pipelines** page, choose **Create pipeline**\.
 
-1. You won't be adding any pipeline activities right now, so on the **Enrich, transform, and filter messages** page, choose **Next**\.  
-![\[Screenshot of "Enrich, transform, and filter messages" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-pipeline-activities.png)
+1. Enter the details about your pipeline\.
 
-1. On the **Save your processed messages in a data store** page, choose **Edit**, choose the data store your created earlier, and then choose **Create pipeline**\.  
-![\[Screenshot of "Save your processed messages in a data store" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-pipeline-select-datastore.png)
+   1. In **Setup pipeline ID and sources**, enter a pipeline name\.
 
-   You have successfully created a pipeline\.
+   1. Choose your pipeline's source, which is an AWS IoT Analytics channel that your pipeline will read messages from\.
+
+   1. Specify your pipeline's output, which is the data store where your processed message data is stored\.
+
+   1. \(Optional\) For **Tags**, add one or more custom tags \(key\-value pairs\) to your pipeline\.
+
+   1. On the **Infer message attributes** page, enter an attribute name and an example value, choose a data type from the list, and then choose **Add attribute**\. 
+
+   1. Repeat the previous step for as many attributes as you need, and then choose **Next**\.
+
+   1. You won't add any pipeline activities right now\. On the **Enrich, transform, and filter messages** page, choose **Next**\.
+
+1. Review your choices and then choose **Create pipeline**\.
+
+1. Verify that your new pipeline appears on the **Pipelines** page\.
+
+**Note**  
+You created AWS IoT Analytics resources so that they can do the following:  
+Collect raw, unprocessed IoT device message data with a *channel*\.
+Store your IoT device message data in a *data store*\.
+Clean, filter, transform, and enrich your data with a *pipeline*\.
+Next, you will create an AWS IoT Analytics SQL dataset to discover useful insights about your IoT device\.
 
 ## Create a dataset<a name="quickstart-create-dataset"></a>
 
-You now have a channel that routes data to a pipeline that stores data in a data store where it can be queried\. To query the data, you create a data set\. A data set contains SQL expressions that you use to query the data store along with an optional schedule that repeats the query at a day and time you choose\. You can create the optional schedules by using expressions similar to [Amazon CloudWatch schedule expressions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)\.
+**Note**  
+ A dataset is typically a collection of data that might or might not be organized in tabular form\. In contrast, AWS IoT Analytics creates your dataset by applying a SQL query to data in your data store\. 
 
-1. On the **Pipelines** page, in the left navigation pane, choose **Data sets**\.  
-![\[Screenshot of "Pipelines" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-pipeline-return.png)
+You now have a channel that routes raw message data to a pipeline that stores data in a data store where it can be queried\. To query the data, you create a dataset\. A dataset contains SQL statements and expressions that you use to query the data store along with an optional schedule that repeats the query at a day and time that you specify\. You can use expressions similar to [Amazon CloudWatch schedule expressions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) to create the optional schedules\.
 
-1. On the **Explore your data with a data set** page, choose ** Create a data set**\.  
-![\[Screenshot of "Explore your data with a data set" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-dataset.png)
+**To create a dataset**
 
-1. On the **Select a type** page, choose **Create SQL**\.   
-![\[Screenshot of "Select a type" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-dataset-select-type.png)
+1. In the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2), in the **Analyze your data** section, choose **View datasets**\.
 
-1. On the **Set ID and source** page, enter an **ID**\. In **Select data store source**, choose **Edit** and choose the data store you created earlier\. Then choose **Next**\.  
-![\[Screenshot of "Set ID and source" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-dataset-enter-id.png)
+1. On the **Create dataset** page, choose **Create SQL**\.
 
-1. On the **Author SQL Query** page, in the **Query** area, enter a SQL expression that selects your attributes, or with a wildcard expression which selects all attributes, and then choose **Next**\. This example uses a SQL expression with a wildcard\.
+1. 
 
-   ```
-   SELECT * FROM my_datastore
-   ```  
-![\[Screenshot of "Author SQL query" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-dataset-sql.png)
+   1. On the **Specify dataset details** page, enter a name for the dataset\.
 
-   You can choose **Test query** to validate that the **SQL Query** you input is correct\. It will run the query in Amazon Athena and display the results in a window below the query\. The following example is a successful test\.  
-![\[Screenshot of "Author SQL query" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/test-query-results.png)
+   1. For **Select data store source**, choose the name of the data store that you created earlier\.
 
-   Note that running a query at this point might return no, or few, results depending on how much data is in your data store\. You might see only `__dt` at this point\. Amazon Athena also [limits the maximum number of running queries](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#amazon-athena-limits)\. Because of this, you must be careful to limit the SQL query to a reasonable size so that it does not run for an extended period\. We suggest using a `LIMIT` clause in the SQL query during testing, such as the following example\.
+   1. \(Optional\) For **Tags**, add one or more custom tags \(key\-value pairs\) to your dataset\.
 
-   ```
-   SELECT * FROM my_datastore LIMIT 5
-   ```
+1. Follow these steps to author your SQL query\.
 
-   After the test is successful, you can remove the `LIMIT 5`\.
+   1. In the **Author query** field, enter a SQL query that uses a wildcard to select all attributes and values from your data store\.
 
-1. You won't configure a data selection filter at this point, so on the **Configure data selection filter** page, choose **Next**\.  
-![\[Screenshot of "Configure data selection filter" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-dataset-selection-filter.png)
+      ```
+      SELECT * FROM my_datastore
+      ```
 
-1. You won't schedule a recurring run of the query at this point, so on the **Set query schedule** page, choose **Next**\.  
-![\[Screenshot of "Set query schedule (optional)" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-dataset-schedule.png)
+   1. You can choose **Test query** to validate that your input is correct\. The query will run in Amazon Athena and display the results in a table following the query\.
+**Tip**  
+At this point in the tutorial, running a query might not return results depending on how much data is in your data store\. You might see only `__dt`\. Athena also [limits the maximum number of running queries](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#amazon-athena-limits)\. Because of this, you must be careful to limit the SQL query to a reasonable size so that it does not run for an extended period\. We suggest using a `LIMIT` clause in the SQL query during testing, such as in the following example\.  
 
-1. You can use the default data set retention period \(90 days\) and leave **Versioning** "Disabled", so on the **Configure the results of your analytics** page, choose **Next**\.  
-![\[Screenshot of "Configure the results of your analytics" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-dataset-retention.png)
+      ```
+      SELECT * FROM my_datastore LIMIT 5
+      ```
+After the test succeeds, you can remove `LIMIT 5`\.  
+For more information, see the [Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#amazon-athena-limits) for Athena in the *AWS General Reference*\.
 
-1. On the **Configure the delivery rules of your analytics results** page, choose **Create data set**\.  
-![\[Screenshot of "Configure the delivery rules of your analytics results" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/create-dataset-delivery.png)
+1. \(Optional\) You won't configure a data selection filter at this point\. On the **Configure data selection filter** page, choose **Next**\.
 
-   You successfully created a data set\.
+1. \(Optional\) You won't schedule a recurring run of the query at this point\. On the **Set query schedule** page, choose **Next**\. 
 
-## Send an AWS IoT message<a name="send-iotcore-messages"></a>
+1. You can use the default dataset retention period as **Indefinitely** and keep **Versioning** disabled\. On the **Configure the results of your analytics** page, choose **Next**\.
 
-To generate some sample data, use the AWS IoT console to send an AWS IoT message\.
+1. \(Optional\) On the **Configure the delivery rules of your analytics results** page, choose **Next**\.
+
+1. Review your choices and then choose **Create dataset**\.
+
+1. Verify that your new dataset appears on the **Datasets** page\.
+
+## Send message data with AWS IoT<a name="send-iotcore-messages"></a>
+
+If you have a channel that routes data to a pipeline, which stores data in a data store where it can be queried, then you're ready to send IoT device data into AWS IoT Analytics\. You can send data into AWS IoT Analytics by using the following options:
++ Use the AWS IoT message broker\.
++ Use the AWS IoT Analytics [BatchPutMessage](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html) API operation\.
+
+In the following steps, you send message data from the AWS IoT message broker in the AWS IoT Core console so that AWS IoT Analytics can ingest this data\.
 
 **Note**  
-The field names of message payloads \(data\) that you send to AWS IoT Analytics:  
-Must contain only alphanumeric characters and underscores \(`_`\); no other special characters are allowed\.
-Must begin with an alphabetic character or single underscore\(`_`\)\.
-Cannot contain hyphens \(`-`\)\.
-In regular expression terms: "`^[A-Za-z_]([A-Za-z0-9]*|[A-Za-z0-9][A-Za-z0-9_]*)$`"\.
-Cannot be greater than 255 characters\.
-Are case\-insensitive\. Fields named `foo` and `FOO` in the same payload are considered duplicates\.
-For example, `{"temp_01";: 29}` or `{"_temp_01": 29}` are valid, but `{"temp-01": 29}`, `{"01_temp": 29}` or `{"__temp_01": 29}` are invalid in message payloads\.
+When you create topic names for your messages, note the following:  
+Topic names are not case sensitive\. Fields named `example` and `EXAMPLE` in the same payload are considered duplicates\.
+Topic names can't begin with the `$` character\. Topics that begin with `$` are reserved topics and can only be used by AWS IoT\.
+Don't include personally identifiable information in your topic names because this information can appear in unencrypted communications and reports\.
+AWS IoT Core can't send messages between AWS accounts or AWS Regions\.
 
-1. In the [AWS IoT console](https://console.aws.amazon.com/iot/), in the left navigation pane, choose **Test**\.  
-![\[Screenshot of "Monitor" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/choose-test.png)
+**To send message data with AWS IoT**
 
-1. On the **MQTT client** page, in the **Publish** section, in **Specify a topic**, type a topic that will match the topic filter you entered when you created a channel\. This example uses `update/environment/dht1`\. In the message payload section, enter the following JSON contents\.
+1. Sign in to the [AWS IoT console](https://console.aws.amazon.com/iot)\.
+
+1. In the navigation pane, choose **Test**, and then choose **MQTT test client**\.
+
+1. On the **MQTT test client** page, choose **Publish to a topic**\. 
+
+1. For **Topic name**, enter a name that will match the topic filter that you entered when you created a channel\. This example uses `update/environment/dht1`\.
+
+1. For **Message payload**, enter the following JSON contents\.
 
    ```
    {
-       "thingid": "dht1",
-       "temperature": 26,
-       "humidity": 29,
-       "datetime": "2018-01-26T07:06:01"
+     "thingid": "dht1",
+     "temperature": 26,
+     "humidity": 29,
+     "datetime": "2018-01-26T07:06:01"
    }
    ```
 
-1. Choose **images/publish\-environment\.png**\.  
-![\[Screenshot of "Monitor" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/choose-test.png)
+1. \(Optional\) Choose **Add Configuration** for additional message protocol options\.
 
-   If you have followed the example to this point, then this publishes a message that is captured by your channel, and then routed by your pipeline to your data store\.
+1. Choose **Publish**\.
 
-## Check the progress of IoT messages<a name="check-iotcore-messages"></a>
+   This publishes a message that is captured by your channel\. Your pipeline then routes the message to your data store\.
+
+## Check the progress of AWS IoT messages<a name="check-iotcore-messages"></a>
 
 You can check that messages are being ingested into your channel by following these steps\.
 
-1. In the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/), in the left navigation pane, choose **Channels**, then choose the name of the channel that you created earlier\.  
-![\[Screenshot of "Channels" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/analytics-console-return.png)
+**To check the progress of AWS IoT messages**
 
-1. On the channel detail page, scroll down to the **Monitoring** section\. Adjust the displayed time frame as necessary by choosing one of the time frame indicators \(**1h 3h 12h 1d 3d 1w**\)\. You should see a graph line indicating the number of messages ingested into this channel during the specified time frame\.  
-![\[Screenshot of "Channel size" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/channel-monitoring.png)
+1. Sign in to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2)\.
 
-A similar monitoring capability exists for checking pipeline activity executions\. You can monitor activity execution errors on the pipeline's detail page\. You haven't specified activities as part of the pipeline, so you shouldn't see any execution errors\.
+1. In the navigation pane, choose **Channels**, and then choose the channel name that you created earlier\.
 
-1. In the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/), in the left navigation pane, choose **Pipelines**, then choose the name of a pipeline that you created earlier\.  
-![\[Screenshot of "Pipelines" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/console-prepare-pipelines.png)
+1. On the **Channel's details** page, scroll down to the **Monitoring** section, and then adjust the displayed time frame \(**1h 3h 12h 1d 3d 1w**\)\. Choose a value such as **1w** to view data for the last week\. 
 
-1. On the pipeline detail page, scroll down to the **Monitoring** section\. Adjust the displayed time frame as necessary by choosing one of the time frame indicators \(**1h 3h 12h 1d 3d 1w**\)\. You should see a graph line indicating the number of pipeline activity execution errors during the specified time frame\.  
-![\[Screenshot of "Monitoring" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/pipeline-monitoring.png)
+You can use a similar feature to monitor for pipeline activity runtime and errors on the **Pipeline's details** page\. In this tutorial, you haven't specified activities as part of the pipeline, so you shouldn't see any runtime errors\.
+
+**To monitor pipeline activity**
+
+1. In the navigation pane, choose **Pipelines**, and then choose the name of the pipeline that you created earlier\.
+
+1. On the **Pipeline's details** page, scroll down to the **Monitoring** section, and then adjust the displayed time frame by choosing one of the time frame indicators \(**1h 3h 12h 1d 3d 1w**\)\. 
 
 ## Access the query results<a name="access-query-results"></a>
 
-The data set content is the result of your query in a file, in CSV format\.
+The dataset content is the result of your query in a file, in CSV format\.
 
-1. In the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/), in the left navigation pan, choose **Data sets**\.  
-![\[Screenshot of the "Data set" page in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/analyze-datasets.png)
+1. In the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/), in the left navigation pane, choose **Data sets**\.
 
-1. On the **Data sets** page, choose the name of the data set that you created previously\.  
-![\[Screenshot of your data sets in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/select-dataset.png)
+1. On the **Data sets** page, choose the name of the dataset that you created previously\.
 
 1. On the data set information page, in the upper\-right corner, choose **Run now**\.  
 ![\[Screenshot of "Run now" for your data set in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/dataset-run-query.png)
 
-1. To check if the data set is ready, look for **SUCCEEDED** under the name of the data set in the upper left\-hand corner\. The details section contains the query results\.  
+1. To check if the dataset is ready, look for **SUCCEEDED** under the name of the dataset in the upper left\-hand corner\. The details section contains the query results\.  
 ![\[Screenshot of "Data set ARN" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/dataset-succeeded1.png)
 
 1. In the left navigation pane, choose **Content**, and then choose **Download** to view or save the CSV file that contains the query results\.  
@@ -228,7 +298,7 @@ The data set content is the result of your query in a file, in CSV format\.
    "dht1","26","29","2018-01-26T07:06:01","2019-02-27 00:00:00.000"
    ```
 
-   AWS IoT Analytics can also embed the HTML portion of a Jupyter notebook on this **Data Set** content page\. For more information see [ Visualizing AWS IoT Analytics data with the console](https://docs.aws.amazon.com/iotanalytics/latest/userguide/visualization-console.html#aws-iot-analytics-console-visualization)\.
+   AWS IoT Analytics can also embed the HTML portion of a Jupyter notebook on this **Data Set** content page\. For more information, see [ Visualizing AWS IoT Analytics data with the console](https://docs.aws.amazon.com/iotanalytics/latest/userguide/visualization-console.html#aws-iot-analytics-console-visualization)\.
 
 1. Choose the left arrow in the upper\-left corner to return to the main page of the AWS IoT Analytics console\.
 
@@ -237,11 +307,11 @@ The data set content is the result of your query in a file, in CSV format\.
 You have several options for storing, analyzing and visualizing your data\.
 
 Amazon Simple Storage Service  
-You can send data set contents to an [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html) bucket, enabling integration with your existing data lakes or access from in\-house applications and visualization tools\. See the field `contentDeliveryRules::destination::s3DestinationConfiguration` in the [CreateDataset](https://docs.aws.amazon.com/iotanalytics/latest/userguide/api.html#cli-iotanalytics-createdataset) operation\.
+You can send dataset contents to an [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html) bucket, enabling integration with your existing data lakes or access from in\-house applications and visualization tools\. See the field `contentDeliveryRules::destination::s3DestinationConfiguration` in the [CreateDataset](https://docs.aws.amazon.com/iotanalytics/latest/userguide/api.html#cli-iotanalytics-createdataset) operation\.
 
 AWS IoT Events  
-You can send data set contents as an input to AWS IoT Events, a service which enables you to monitor devices or processes for failures or changes in operation, and to trigger additional actions when such events occur\.  
-To do this, create a data set using the [CreateDataset](https://docs.aws.amazon.com/iotanalytics/latest/userguide/api.html#cli-iotanalytics-createdataset) operation and specify an AWS IoT Events input in the field `contentDeliveryRules :: destination :: iotEventsDestinationConfiguration :: inputName`\. You must also specify the `roleArn` of a role, which grants AWS IoT Analytics permissions to execute `iotevents:BatchPutMessage`\. Whenever the data set's contents are created, AWS IoT Analytics will send each data set content entry as a message to the specified AWS IoT Events input\. For example, if your data set contains the following content\.  
+You can send dataset contents as an input to AWS IoT Events, a service that enables you to monitor devices or processes for failures or changes in operation, and to initiate additional actions when such events occur\.  
+To do this, create a dataset using the [CreateDataset](https://docs.aws.amazon.com/iotanalytics/latest/userguide/api.html#cli-iotanalytics-createdataset) operation and specify an AWS IoT Events input in the field `contentDeliveryRules :: destination :: iotEventsDestinationConfiguration :: inputName`\. You must also specify the `roleArn` of a role, which grants AWS IoT Analytics permissions to run `iotevents:BatchPutMessage`\. Whenever the datasets contents are created, AWS IoT Analytics will send each dataset content entry as a message to the specified AWS IoT Events input\. For example, if your dataset contains the following content\.  
 
 ```
 "what","who","dt"
@@ -262,8 +332,8 @@ Then AWS IoT Analytics sends messages that contain fields like the following\.
 You will want to create an AWS IoT Events input that recognizes the fields you are interested in \(one or more of `what`, `who`, `dt`\) and to create an AWS IoT Events detector model that uses these input fields in events to trigger actions or set internal variables\.
 
 Jupyter Notebook  
-[Jupyter Notebook](https://jupyter.org/) is an open source solution for advanced analyses and ad\-hoc data exploration\. Notebooks enable you to use templates and scripting language, typically Python, to apply different transformations or normalizations to the data, aggregate metrics, and analyze and visualize data using data science libraries\. You can even apply more complex analytics and machine learning, such as k\-means clustering, to your data using these notebooks\.  
-AWS IoT Analytics uses SageMaker notebook instances to host its Jupyter notebooks\. Before you create a notebook instance, you must create a relationship between AWS IoT Analytics and SageMaker:  
+[Jupyter Notebook](https://jupyter.org/) is an open source solution for using scripting languages to run ad\-hoc data exploration and advanced analyses\. You can dive deep and apply more complex analyses and use machine learning methods, such as k\-means clustering and regression models for prediction, on your IoT device data\.  
+AWS IoT Analytics uses Amazon SageMaker notebook instances to host its Jupyter Notebooks\. Before you create a notebook instance, you must create a relationship between AWS IoT Analytics and Amazon SageMaker:  
 
 1. Navigate to the [SageMaker console](https://console.aws.amazon.com/sagemaker/) and create a notebook instance:
 
@@ -278,38 +348,26 @@ AWS IoT Analytics uses SageMaker notebook instances to host its Jupyter notebook
    1. Choose **Add inline policy**, and then for **Service**, choose **iotAnalytics**\. Choose **Select actions**, and then enter **GetDatasetContent** in the search box and choose it\. Choose **Review Policy**\.
 
    1. Review the policy for accuracy, enter a name, and then choose **Create policy**\.
+This gives the newly created role permission to read a dataset from AWS IoT Analytics\.   
 
-   This gives the newly created role permission to read a data set from AWS IoT Analytics\. 
+1. Return to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2), and in the left navigation pane, choose **Notebooks**\. On the **Notebooks** page, choose **Create notebook**\.
 
-1. Return to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/), and in the left navigation pane, choose **Notebooks**\. On the **Gain deeper insight from IoT data** page, choose **Create a notebook**:  
-![\[Screenshot of "Notebooks" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/analyze-notebooks.png)
+1. On the **Select a template** page, choose **IoTA blank template**\.
 
-1. On the **Selected method** page, choose **Blank Notebook**\.  
-![\[Screenshot of "Create notebooks" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/notebook-select-method.png)
+1. On the **Set up notebook** page, enter a name for your notebook\. In **Select dataset source**, choose and then choose the dataset you created earlier\. In **Select a notebook instance**, choose the notebook instance you created in SageMaker\.
 
-1. On the **Set up notebook** page, enter a name for the notebook\. In **Select data set sources**, choose **Select**, and then choose the data set you created earlier\. In **Select a Notebook Instance**, choose **Select**, and then choose the notebook instance you created in SageMaker\. Choose **Create Notebook**\.  
-![\[Screenshot of your notebook in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/notebook-setup.png)
+1. After you review your choices, choose **Create Notebook**\.
 
-1. On the **Notebooks** page, use the triangles to open your notebook instance and the **IoTAnalytics** directory\. Use the links to explore your data in Jupyter Notebook\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/notebook-select-jupyter.png)
-You can download and [install](https://jupyter.org/install.html) Jupyter Notebook on your computer\. Additional integration with an Amazon hosted notebook solution is also available\.
+1. On the **Notebooks** page, your notebook instance will open in the [Amazon SageMaker](SMconsole_link;) console\. 
 
 ## Notebook templates<a name="notebook-templates"></a>
 
-The AWS IoT Analytics notebook templates contain AWS\-authored machine learning models and visualizations to help you get started with AWS IoT Analytics use cases\. These notebook templates can be explored as\-is for educational purposes, or re\-purposed to fit your data and deliver immediate value\.
+The AWS IoT Analytics notebook templates contain AWS authored machine learning models and visualizations to help you get started with AWS IoT Analytics use cases\. You can use these notebook templates to learn more or reuse them to fit your IoT device data and deliver immediate value\.
 
-AWS IoT Analytics provides the following notebook templates:
-
-1. Detecting Contextual Anomalies: Application of contextual anomaly detection in measured wind speed with a PEWMA model for time series data\.
-
-1. Solar Panel Output Forecasting: Application of piecewise, seasonal, linear time series models with trend to predicting the output of solar panels\.
-
-1. Predictive Maintenance on Jet Engines: Application of multivariate LSTM neural networks and logistic regression to predict remaining useful life of jet engines\.
-
-1. Smart Home Customer Segmentation: Application of k\-means and PCA analysis to detect different customer segments in smart home usage data\.
-
-1. Smart City Congestion Forecasting: Application of LSTM to predict the utilization rates for city highways\.
-
-1. Smart City Air Quality Forecasting: Application of LSTM to predict particulate pollution in city centers\.
-
-You can find more information about notebook templates in the AWS IoT Analytics console under **Analyze/Notebooks**\. 
+You can find the following notebook templates in the AWS IoT Analytics console:
++ **Detecting contextual anomalies** – Application of contextual anomaly detection in measured wind speed with a Poisson Exponentially Weighted Moving Average \(PEWMA\) model\.
++ **Solar panel output forecasting** – Application of piecewise, seasonal, and linear time series models to predict the output of solar panels\.
++ **Predictive maintenance on jet engines** – Application of multivariate Long Short\-Term Memory \(LSTM\) neural networks and logistic regression to predict jet engine failure\.
++ **Smart home customer segmentation** – Application of k\-means and Principal Component Analysis \(PCA\) analysis to detect different customer segments in data of smart home usage\.
++ **Smart city congestion forecasting** – Application of LSTM to predict the utilization rates for city highways\.
++ **Smart city air quality forecasting** – Application of LSTM to predict particulate pollution in city centers\.

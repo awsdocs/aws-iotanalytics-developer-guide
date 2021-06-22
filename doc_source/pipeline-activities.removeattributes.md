@@ -1,6 +1,6 @@
 # RemoveAttributes activity<a name="pipeline-activities.removeattributes"></a>
 
-A `removeAttributes` activity removes attributes from a message\. For example, given the message that was the result of the `removeAttributes` activity\.
+A `removeAttributes` activity removes attributes from a message\. For example, given the message that was the result of the `addAttributes` activity\.
 
 ```
 {

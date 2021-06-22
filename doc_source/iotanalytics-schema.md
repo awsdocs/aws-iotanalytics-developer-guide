@@ -29,26 +29,68 @@ AWS IoT Analytics supports all data types listed on the [Data Types in Amazon At
 
 ## Create a data store \(console\)<a name="create-datastore-console"></a>
 
-The following shows you how to create a data store that saves data in Parquet format\.
+The following procedure shows you how to create a data store that saves data in Parquet format\.
 
-1. Sign in to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/)\.
+**To create a data store**
+
+1. Sign in to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2)\.
 
 1. In the navigation pane, choose **Data stores**\.
 
-1. Choose **Create**\.
+1. On the **Data stores** page, choose **Create data store**\.
 
-1. On the **Set ID and tags** page, enter a unique data store ID, and then choose **Next**\.
+1. On the **Specify data store details** page, enter basic information about your data store\.
 
-1. On the **Set storage type** page, choose storage type, and then choose **Next**\. This tutorial uses **AWS managed S3 bucket**\.
+   1. For **Data store ID**, enter a unique data store ID\. You can't change this ID after you create it\.
 
-1. On the **Set data format** page, choose **Parquet**, and then choose **Add column**\.
+   1. \(Optional\) For **Tags**, choose **Add new tag** to add one or more custom tags \(key\-value pairs\) to your data store\. Tags can help you identify your resources that you create for AWS IoT Analytics\.
 
-1. On the **Add column to Parquet schema** page, enter a column name and choose the data type, and then choose **Add column**\.
+   1. Choose **Next**\.
+
+1. On the **Configure storage type** page, specify how to store your data\.
+
+   1. For **Storage type**, choose **Service managed storage**\. 
+
+   1. For **Configure how long you want to keep your processed data**, choose **Indefinitely**\.
+
+   1. Choose **Next**\.
+
+1. On the **Configure data format** page, define the structure and format of your data records\.
+
+   1. For **Classification**, choose **Parquet**\. You can't change this format after you create the data store\.
+
+   1. For **Inference source**, choose **JSON string** for your data store\.
+
+   1. For **String**, enter your schema in JSON format, such as the following example\.
+
+      ```
+      {
+          "device_id": "0001",
+          "temperature": 26,
+          "humidity": 29,
+          "datetime": "2018-01-26T07:06:01"
+      }
+      ```
+
+   1. Choose **Infer schema**\.
+
+   1. Under **Configure Parquet schema**, confirm that the format matches your JSON example\. If the format doesn't match, update the Parquet schema manually\.
+      + If you want your schema to show more columns, choose **Add new column**, enter a column name, and then choose the data type\.
 **Note**  
-You can add up to 100 columns\.
-You can add columns to the existing schema by using the [UpdateDatastore](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_UpdateDatastore.html) API\.
-You can't edit the existing schema in the console after you create the data store\.
+By default, you can have 100 columns for your schema\. For more information, see [AWS IoT Analytics quotas](https://docs.aws.amazon.com/iotanalytics/latest/userguide/limits.html)\.
+      + You can change the data type for an existing column\. For more information about the supported data types, see [Common data types](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html) in the *AWS Glue Developer Guide*\.
+**Note**  
+After you create your data store, you can't change the data type for an existing column\. 
+      + To remove an existing column, choose **Remove column**\.
 
-1. Choose **Create**\.
+   1. Choose **Next**\.
 
-   You can't change the file format after you create the data store\.
+1. \(Optional\) AWS IoT Analytics supports custom partitions in your data store so you can query on pruned data to improve latency\. For more information about supported custom partitions, see [Custom partitions](custom-partitioning.md)\.
+
+   Choose **Next**\.
+
+1. On the **Review and create** page, review your choices, and then choose **Create data store**\.
+**Important**  
+You can't change the data store ID, file format, or the data type for a column after you create the data store\.
+
+1. Verify that your new data store appears on the **Data stores** page\.

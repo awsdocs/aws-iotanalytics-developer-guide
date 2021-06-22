@@ -80,7 +80,7 @@ When you use the `StartPipelineReprocessing` API, note the following:
 
 For more information, see the [StartPipelineReprocessing](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_StartPipelineReprocessing.html) API, in *AWS IoT Analytics API Reference*\.
 
-## Cancelling channel reprocessing activities<a name="cancel-reprocessing"></a>
+## Canceling channel reprocessing activities<a name="cancel-reprocessing"></a>
 
 To cancel a pipeline reprocessing activity, use the [CancelPipelineReprocessing](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_CancelPipelineReprocessing.html) API or choose **Cancel reprocessing** on the **Activities** page in the AWS IoT Analytics console\. If you cancel the reprocessing, the remaining data won't be reprocessed\. You must start another reprocessing request\.
 

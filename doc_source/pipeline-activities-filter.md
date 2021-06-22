@@ -1,6 +1,6 @@
 # Filter activity<a name="pipeline-activities-filter"></a>
 
-A `filter`activity filters a message based on its attributes\. The expression used in this activity looks like an SQL `WHERE` clause which must return a Boolean\.
+A `filter` activity filters a message based on its attributes\. The expression used in this activity looks like an SQL `WHERE` clause which must return a Boolean\.
 
 ```
 {

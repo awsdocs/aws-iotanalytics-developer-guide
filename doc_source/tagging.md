@@ -31,7 +31,7 @@ You can edit tag keys and values, and you can remove tags from a resource at any
 ## Using tags with IAM policies<a name="tagging-iam"></a>
 
 You can use the `Condition` element \(also called the `Condition` block\) with the following condition context keys/values in an IAM policy to control user access \(permissions\) based on a resource's tags:
-+ Use `iotanalytics:ResourceTag/<tag-key>: <tag-value>` to allow or deny user actions on resources with specific tags\.
++ Use `iotanalytics:ResourceTag/<tag-key>: <tag-value>` yo allow or deny user actions on resources with specific tags\.
 + Use `aws:RequestTag/<tag-key>: <tag-value>` to require that a specific tag be used \(or not used\) when making an API request to create or modify a resource that allows tags\.
 + Use ` aws:TagKeys: [<tag-key>, ...]` to require that a specific set of tag keys be used \(or not used\) when making an API request to create or modify a resource that allows tags\.
 **Note**  

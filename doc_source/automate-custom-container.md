@@ -44,7 +44,7 @@ There are three main files you need for this tutorial\. Their names and contents
   import sys
   from urllib.parse import urlparse
   
-  # Parse the JSON from AWS IoT Analytics
+  # Parse the JSON from IoT Analytics
   with open('/opt/ml/input/data/iotanalytics/params') as params_file:
       params = json.load(params_file)
   

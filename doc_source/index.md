@@ -1,7 +1,7 @@
 # AWS IoT Analytics User Guide
 
 -----
-*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -15,11 +15,12 @@ Amazon's trademarks and trade dress may not be used in
 -----
 ## Contents
 + [What is AWS IoT Analytics?](welcome.md)
-+ [AWS IoT Analytics console quickstart guide](quickstart.md)
++ [Getting started with AWS IoT Analytics (console)](quickstart.md)
 + [Getting started with AWS IoT Analytics](getting-started.md)
    + [Creating a channel](create-channel.md)
    + [Creating a data store](create-data-store.md)
       + [File formats](iotanalytics-schema.md)
+      + [Custom partitions](custom-partitioning.md)
    + [Creating a pipeline](create-pipeline.md)
    + [Ingesting data to AWS IoT Analytics](ingest-data.md)
    + [Monitoring the ingested data](monitor-data.md)

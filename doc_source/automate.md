@@ -10,4 +10,4 @@ Define a non\-overlapping, contiguous time interval to ensure the new dataset co
 Trigger creation of new dataset content when another dataset's content creation is complete `triggers:dataset:name`\.
 
 **Automatically run your analysis applications**  
-Containerize your own, custom data analysis applications and trigger them to run when another dataset's content is created\. This way, you can feed your application with data from a dataset's content that is created on a recurring schedule\. You can automatically tale action on the results of your analysis from within your application\. \(`actions:containerAction`\)
+Containerize your own, custom data analysis applications and trigger them to run when another dataset's content is created\. This way, you can feed your application with data from a dataset's content that is created on a recurring schedule\. You can automatically take action on the results of your analysis from within your application\. \(`actions:containerAction`\)

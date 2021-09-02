@@ -1,6 +1,6 @@
 # Keeping multiple versions of datasets<a name="dataset-versions"></a>
 
-You can choose how many versions of your data set contents to retain, and for how long, by specifying values for the data set `retentionPeriod and versioningConfiguration` fields when invoking the [CreateDataset](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_CreateDataset.html) and [UpdateDataset](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_UpdateDataset.html) APIs:
+You can choose how many versions of your dataset contents to retain, and for how long, by specifying values for the dataset `retentionPeriod and versioningConfiguration` fields when invoking the [CreateDataset](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_CreateDataset.html) and [UpdateDataset](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_UpdateDataset.html) APIs:
 
 ```
 ...

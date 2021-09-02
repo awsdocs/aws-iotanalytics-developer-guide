@@ -10,7 +10,7 @@ See the following section to troubleshoot errors and find and possible solutions
 + [How do I code an event driven by the dataset completion?](#event-driven-dataset)
 + [How do I correctly configure my notebook instance to use AWS IoT Analytics?](#configure-notebook-instance)
 + [Why can't I create notebooks in an instance?](#notebook-instance)
-+ [Why am I not seeing my datasets in Amazon QuickSight?](#sq-no-dataset)
++ [Why aren't I seeing my datasets in Amazon QuickSight?](#sq-no-dataset)
 + [Why am I not seeing the containerize button on my existing Jupyter Notebook?](#containerization-jupyter-notebook)
 + [Why is my containerization plugin installation failing?](#containerization-installation-fails)
 + [Why is my containerization plugin throwing an error?](#containerization-error)
@@ -108,17 +108,21 @@ Follow these steps to make sure the IAM role you are using to create the noteboo
 + Make sure you create a notebook instance with the correct IAM policy\. \(Follow the steps in the previous question\.\)
 + Make sure the notebook instance is in the "In Service" state\. When you create an instance, it starts in a "Pending" state\. It usually takes about five minutes for it to go into the "In Service" state\. If the notebook instance goes into the "Failed" state after about five minutes, check the permissions again\.
 
-## Why am I not seeing my datasets in Amazon QuickSight?<a name="sq-no-dataset"></a>
-+ Follow these steps to make sure you have given Amazon QuickSight read permission for dataset content:
+## Why aren't I seeing my datasets in Amazon QuickSight?<a name="sq-no-dataset"></a>
 
-  1. Click the icon in the upper\-right corner \(mentioning the account name\) and choose **Manage QuickSight**
+Amazon QuickSight might need permission to read your AWS IoT Analytics dataset content\. To give permission, follow these steps\.
 
-  1. Choose **Account settings**, and then under **Connected products & services** choose **Add or remove**
+1. Choose your account name in the upper‐right corner of Amazon QuickSight and choose **Manage QuickSight**\.
 
-  1. Select the box next to **AWS IoT Analytics**, then select **Update**\. This gives QuickSight read permissions to your data sets\.
+1. In the left navigation pane, choose **Security & permissions**\. Under **QuickSight access to AWS services**, verify that access is granted to AWS IoT Analytics\.
 
-  1. Try again to visualize your data\.
-+ Make sure that you choose the same AWS Region for both AWS IoT Analytics and Amazon QuickSight\. Otherwise, you might have issues accessing the AWS resources\. For the list of supported Regions, see [AWS IoT Analytics endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/iot-analytics.html) and [Amazon QuickSight endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/quicksight.html) in the *Amazon Web Services General Reference*\.
+   1. If AWS IoT Analytics doesn't have access, choose **Add or remove**\. 
+
+   1. Choose the box next to **AWS IoT Analytics** and then select **Update**\. This gives Amazon QuickSight permission to read your dataset content\.
+
+1. Try again to visualize your data\.
+
+Make sure that you choose the same AWS Region for both AWS IoT Analytics and Amazon QuickSight\. Otherwise, you might have issues accessing the AWS resources\. For the list of supported Regions, see [AWS IoT Analytics endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/iot-analytics.html) and [Amazon QuickSight endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/quicksight.html) in the *Amazon Web Services General Reference*\.
 
 ## Why am I not seeing the containerize button on my existing Jupyter Notebook?<a name="containerization-jupyter-notebook"></a>
 + This is caused by a missing AWS IoT Analytics Containerization Plugin\. If you created you SageMaker notebook instance before August 23, 2018, you need to manually install the plugin by following the instructions in [Containerizing a notebook](https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate.html#aws-iot-analytics-automate-containerize)\.

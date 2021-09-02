@@ -10,13 +10,13 @@ You have several options for storing, analyzing and visualizing your AWS IoT Ana
 
 ## Amazon S3<a name="amazon-s3"></a>
 
-You can send data set contents to an [Amazon Simple Storage Service \(Amazon S3\)](https://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html) bucket, enabling integration with your existing data lakes or access from in\-house applications and visualization tools\. See the field `contentDeliveryRules::destination::s3DestinationConfiguration` in [CreateDataset](https://docs.aws.amazon.com/iotanalytics/latest/userguide/api.html#cli-iotanalytics-createdataset)\. 
+You can send dataset contents to an [Amazon Simple Storage Service \(Amazon S3\)](https://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html) bucket, enabling integration with your existing data lakes or access from in\-house applications and visualization tools\. See the field `contentDeliveryRules::destination::s3DestinationConfiguration` in [CreateDataset](https://docs.aws.amazon.com/iotanalytics/latest/userguide/api.html#cli-iotanalytics-createdataset)\. 
 
 ## AWS IoT Events<a name="aws-iot-events"></a>
 
-You can send data set contents as an input to AWS IoT Events, a service which enables you to monitor devices or processes for failures or changes in operation, and to trigger additional actions when such events occur\.
+You can send dataset contents as an input to AWS IoT Events, a service which enables you to monitor devices or processes for failures or changes in operation, and to trigger additional actions when such events occur\.
 
-To do this, create a data set using [CreateDataset](https://docs.aws.amazon.com/iotanalytics/latest/userguide/api.html#cli-iotanalytics-createdataset) and specify an AWS IoT Events input in the field `contentDeliveryRules :: destination :: iotEventsDestinationConfiguration :: inputName`\. You must also specify the `roleArn` of a role which grants AWS IoT Analytics permission to execute "iotevents:BatchPutMessage"\. Whenever the data set's contents are created, AWS IoT Analytics will send each data set content entry as a message to the specified AWS IoT Events input\. For example, if your data set contains:
+To do this, create a dataset using [CreateDataset](https://docs.aws.amazon.com/iotanalytics/latest/userguide/api.html#cli-iotanalytics-createdataset) and specify an AWS IoT Events input in the field `contentDeliveryRules :: destination :: iotEventsDestinationConfiguration :: inputName`\. You must also specify the `roleArn` of a role which grants AWS IoT Analytics permission to execute "iotevents:BatchPutMessage"\. Whenever the dataset's contents are created, AWS IoT Analytics will send each dataset content entry as a message to the specified AWS IoT Events input\. For example, if your dataset contains:
 
 ```
 "what","who","dt"
@@ -44,4 +44,4 @@ AWS IoT Analytics provides direct integration with [Amazon QuickSight](https://a
 
 ## Jupyter Notebook<a name="jupyter-noteboo"></a>
 
-AWS IoT Analytics data sets can also be directly consumed by Jupyter Notebook in order to perform advanced analytics and data exploration\. Jupyter Notebook is an open source solution\. You can install and download from [http://jupyter\.org/install\.html](https://jupyter.org/install.html)\. Additional integration with SageMaker, an Amazon hosted notebook solution, is also available\. 
+AWS IoT Analytics datasets can also be directly consumed by Jupyter Notebook in order to perform advanced analytics and data exploration\. Jupyter Notebook is an open source solution\. You can install and download from [http://jupyter\.org/install\.html](https://jupyter.org/install.html)\. Additional integration with SageMaker, an Amazon hosted notebook solution, is also available\. 

@@ -33,7 +33,7 @@ The following procedure shows you how to create a data store that saves data in 
 
 **To create a data store**
 
-1. Sign in to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2)\.
+1. Sign in to the [https://console\.aws\.amazon\.com/iotanalytics/](https://console.aws.amazon.com/iotanalytics/)\.
 
 1. In the navigation pane, choose **Data stores**\.
 

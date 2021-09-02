@@ -17,13 +17,13 @@ Follow the instructions below to create an AWS IoT Analytics channel, pipeline, 
 + [Create a dataset](#quickstart-create-dataset)
 + [Send message data with AWS IoT](#send-iotcore-messages)
 + [Check the progress of AWS IoT messages](#check-iotcore-messages)
-+ [Access the query results](#access-query-results)
++ [Access query results](#access-query-results)
 + [Explore your data](#explore-data)
 + [Notebook templates](#notebook-templates)
 
 ## Sign in to the AWS IoT Analytics console<a name="quickstart-console-signin"></a>
 
-To get started, you must have an AWS account\. If you already have an AWS account, navigate to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2)\.
+To get started, you must have an AWS account\. If you already have an AWS account, navigate to the [https://console\.aws\.amazon\.com/iotanalytics/](https://console.aws.amazon.com/iotanalytics/)\.
 
 If you don't have an AWS account, follow these steps to create one\.
 
@@ -35,7 +35,7 @@ If you don't have an AWS account, follow these steps to create one\.
 
    Part of the sign\-up procedure involves receiving a phone call and entering a verification code on the phone keypad\.
 
-1. Sign in to the AWS Management Console and navigate to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2)\.
+1. Sign in to the AWS Management Console and navigate to the [https://console\.aws\.amazon\.com/iotanalytics/](https://console.aws.amazon.com/iotanalytics/)\.
 
 ## Create a channel<a name="quickstart-create-channel"></a>
 
@@ -43,7 +43,7 @@ A channel collects and archives raw, unprocessed, and unstructured IoT device da
 
 **To create a channel**
 
-1. In the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2), in the **Prepare your data with AWS IoT Analytics** section, choose **View channels**\.  
+1. In the [https://console\.aws\.amazon\.com/iotanalytics/](https://console.aws.amazon.com/iotanalytics/), in the **Prepare your data with AWS IoT Analytics** section, choose **View channels**\.  
 ![\[Screenshot of "Prepare your data with AWS IoT Analytics".\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/prepare-your-data.png)
 **Tip**  
 You can also choose **Channels** from the navigation pane\.
@@ -86,7 +86,7 @@ Follow these steps to create a data store\.
 
 **To create a data store**
 
-1. In the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2), in the **Prepare your data with AWS IoT Analytics** section, choose **View data stores**\.
+1. In the [https://console\.aws\.amazon\.com/iotanalytics/](https://console.aws.amazon.com/iotanalytics/), in the **Prepare your data with AWS IoT Analytics** section, choose **View data stores**\.
 
 1. On the **Data stores** page, choose **Create data store**\.
 
@@ -128,7 +128,7 @@ Follow these steps to create a pipeline\.
 
 **To create a pipeline**
 
-1. In the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2), in the **Prepare your data with AWS IoT Analytics** section, choose **View pipelines**\.
+1. In the [https://console\.aws\.amazon\.com/iotanalytics/](https://console.aws.amazon.com/iotanalytics/), in the **Prepare your data with AWS IoT Analytics** section, choose **View pipelines**\.
 **Tip**  
 You can also choose **Pipelines** from the navigation pane\.
 
@@ -170,43 +170,49 @@ You now have a channel that routes raw message data to a pipeline that stores da
 
 **To create a dataset**
 
-1. In the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2), in the **Analyze your data** section, choose **View datasets**\.
+1. In the [https://console\.aws\.amazon\.com/iotanalytics/](https://console.aws.amazon.com/iotanalytics/), in the **left navigation pane**, choose **Datasets**\.
 
 1. On the **Create dataset** page, choose **Create SQL**\.
 
-1. 
+1. On the **Specify dataset details** page, specify the details of your dataset\.
 
-   1. On the **Specify dataset details** page, enter a name for the dataset\.
+   1. Enter a name for your dataset\.
 
-   1. For **Select data store source**, choose the name of the data store that you created earlier\.
+   1. For **Data store source**, choose the the unique ID that identifies the data store that you created earlier\.
 
    1. \(Optional\) For **Tags**, add one or more custom tags \(key\-value pairs\) to your dataset\.
 
-1. Follow these steps to author your SQL query\.
+1. Use SQL expressions to query your data and answer analytical questions\. The results of your query are stored in this dataset\.
 
-   1. In the **Author query** field, enter a SQL query that uses a wildcard to select all attributes and values from your data store\.
-
-      ```
-      SELECT * FROM my_datastore
-      ```
-
-   1. You can choose **Test query** to validate that your input is correct\. The query will run in Amazon Athena and display the results in a table following the query\.
-**Tip**  
-At this point in the tutorial, running a query might not return results depending on how much data is in your data store\. You might see only `__dt`\. Athena also [limits the maximum number of running queries](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#amazon-athena-limits)\. Because of this, you must be careful to limit the SQL query to a reasonable size so that it does not run for an extended period\. We suggest using a `LIMIT` clause in the SQL query during testing, such as in the following example\.  
+   1. In the **Author query** field, enter a SQL query that uses a wildcard to show up to five rows of data\.
 
       ```
-      SELECT * FROM my_datastore LIMIT 5
+      SELECT * FROM my_data_store LIMIT 5
       ```
-After the test succeeds, you can remove `LIMIT 5`\.  
-For more information, see the [Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#amazon-athena-limits) for Athena in the *AWS General Reference*\.
 
-1. \(Optional\) You won't configure a data selection filter at this point\. On the **Configure data selection filter** page, choose **Next**\.
+       For more information about supported SQL functionality in AWS IoT Analytics, see [SQL expressions in AWS IoT Analytics](sql-support.md)\.
 
-1. \(Optional\) You won't schedule a recurring run of the query at this point\. On the **Set query schedule** page, choose **Next**\. 
+   1. You can choose **Test query** to validate that your input is correct and display the results in a table following the query\.
+**Note**  
+At this point in the tutorial your datastore might be empty\. Running a SQL query on an empty datastore won’t return results, so you might see only `__dt`\.
+You must be careful to limit your SQL query to a reasonable size so that it does not run for an extended period because Athena [limits the maximum number of running queries](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#amazon-athena-limits)\. Because of this, you must be careful to limit the SQL query to a reasonable size\.  
+We suggest using a `LIMIT` clause in your query during testing\. After the test succeeds, you can remove this clause\.
 
-1. You can use the default dataset retention period as **Indefinitely** and keep **Versioning** disabled\. On the **Configure the results of your analytics** page, choose **Next**\.
+1. \(Optional\) When you create dataset contents using data from a specified time frame, some data might not arrive in time for processing\. To allow for a delay, you can specify an offset, or delta\. For more information, see [Getting late data notifications through Amazon CloudWatch Events](late-data-notification.md)\.
 
-1. \(Optional\) On the **Configure the delivery rules of your analytics results** page, choose **Next**\.
+   You won't configure a data selection filter at this point\. On the **Configure data selection filter** page, choose **Next**\.
+
+1. \(Optional\) You can schedule this query to run regularly to refresh the dataset\. Dataset schedules can be created and edited at any time\. 
+
+   You won't schedule a recurring run of the query at this point, so on the **Set query schedule** page choose **Next**\. 
+
+1. AWS IoT Analytics will create versions of this dataset content and store your analytics results for the specified period\. We recommend 90 days, however you can opt to set your custom retention policy\. You may also limit the number of stored versions of your dataset content\.
+
+   You can use the default dataset retention period as **Indefinitely** and keep **Versioning** disabled\. On the **Configure the results of your analytics** page, choose **Next**\.
+
+1. \(Optional\) You can configure the delivery rules of your dataset results to a specific destination, such as AWS IoT Events\. 
+
+   You won't deliver your results elsewhere in this tutorial, so on the **Configure dataset content delivery rules** page, choose **Next**\.
 
 1. Review your choices and then choose **Create dataset**\.
 
@@ -260,7 +266,7 @@ You can check that messages are being ingested into your channel by following th
 
 **To check the progress of AWS IoT messages**
 
-1. Sign in to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2)\.
+1. Sign in to the [https://console\.aws\.amazon\.com/iotanalytics/](https://console.aws.amazon.com/iotanalytics/)\.
 
 1. In the navigation pane, choose **Channels**, and then choose the channel name that you created earlier\.
 
@@ -274,37 +280,25 @@ You can use a similar feature to monitor for pipeline activity runtime and error
 
 1. On the **Pipeline's details** page, scroll down to the **Monitoring** section, and then adjust the displayed time frame by choosing one of the time frame indicators \(**1h 3h 12h 1d 3d 1w**\)\. 
 
-## Access the query results<a name="access-query-results"></a>
+## Access query results<a name="access-query-results"></a>
 
-The dataset content is the result of your query in a file, in CSV format\.
+The dataset content is a file containing the result of your query, in CSV format\.
 
-1. In the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/), in the left navigation pane, choose **Data sets**\.
+1. In the [https://console\.aws\.amazon\.com/iotanalytics/](https://console.aws.amazon.com/iotanalytics/), in the left navigation pane, choose **Datasets**\.
 
-1. On the **Data sets** page, choose the name of the dataset that you created previously\.
+1. On the **Datasets** page, choose the name of the dataset that you created previously\.
 
-1. On the data set information page, in the upper\-right corner, choose **Run now**\.  
-![\[Screenshot of "Run now" for your data set in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/dataset-run-query.png)
+1. On the dataset information page, in the upper\-right corner, choose **Run now**\.
 
-1. To check if the dataset is ready, look for **SUCCEEDED** under the name of the dataset in the upper left\-hand corner\. The details section contains the query results\.  
-![\[Screenshot of "Data set ARN" in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/dataset-succeeded1.png)
+1. To check if the dataset is ready, look under the dataset for a message similar to **You’ve successfully started the query for your dataset**\. The **Dataset content** tab contains the query results and displays **Succeeded**\.
 
-1. In the left navigation pane, choose **Content**, and then choose **Download** to view or save the CSV file that contains the query results\.  
-![\[Screenshot of how to download your dataset in the AWS IoT Analytics console.\]](http://docs.aws.amazon.com/iotanalytics/latest/userguide/images/dataset-succeeded.png)
-
-   It should look similar to the following example\.
-
-   ```
-   "thingid","temperature","humidity","datetime","__dt"
-   "dht1","26","29","2018-01-26T07:06:01","2019-02-27 00:00:00.000"
-   ```
-
-   AWS IoT Analytics can also embed the HTML portion of a Jupyter notebook on this **Data Set** content page\. For more information, see [ Visualizing AWS IoT Analytics data with the console](https://docs.aws.amazon.com/iotanalytics/latest/userguide/visualization-console.html#aws-iot-analytics-console-visualization)\.
-
-1. Choose the left arrow in the upper\-left corner to return to the main page of the AWS IoT Analytics console\.
+1. To preview the results of your successful query, on the **Dataset contents** tab, select the query name\. To view or save the CSV file that contains the query results, choose **Download**\.
+**Note**  
+AWS IoT Analytics can embed the HTML portion of a Jupyter Notebook on the **Dataset contents** page\. For more information, see [Visualizing AWS IoT Analytics data with the console](data-visualization.md#visualization-console)\.
 
 ## Explore your data<a name="explore-data"></a>
 
-You have several options for storing, analyzing and visualizing your data\.
+You have several options for storing, analyzing, and visualizing your data\.
 
 Amazon Simple Storage Service  
 You can send dataset contents to an [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html) bucket, enabling integration with your existing data lakes or access from in\-house applications and visualization tools\. See the field `contentDeliveryRules::destination::s3DestinationConfiguration` in the [CreateDataset](https://docs.aws.amazon.com/iotanalytics/latest/userguide/api.html#cli-iotanalytics-createdataset) operation\.
@@ -350,7 +344,7 @@ AWS IoT Analytics uses Amazon SageMaker notebook instances to host its Jupyter N
    1. Review the policy for accuracy, enter a name, and then choose **Create policy**\.
 This gives the newly created role permission to read a dataset from AWS IoT Analytics\.   
 
-1. Return to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2), and in the left navigation pane, choose **Notebooks**\. On the **Notebooks** page, choose **Create notebook**\.
+1. Return to the [https://console\.aws\.amazon\.com/iotanalytics/](https://console.aws.amazon.com/iotanalytics/), and in the left navigation pane, choose **Notebooks**\. On the **Notebooks** page, choose **Create notebook**\.
 
 1. On the **Select a template** page, choose **IoTA blank template**\.
 

@@ -12,7 +12,7 @@ The following procedure shows you how to create a data store with a custom parti
 
 **To create a data store**
 
-1. Sign in to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/v2)\.
+1. Sign in to the [AWS IoT Analytics console](https://console.aws.amazon.com/iotanalytics/)\.
 
 1. In the navigation pane, choose **Data stores**\.
 
@@ -57,9 +57,8 @@ You can add only one timestamp partition to your data store\.
    1. For **Custom data store partition dimensions**, define basic information about your partition dimensions\. Each message sample attribute you selected in the previous step will become the dimensions of your partition\. Customize each dimension with these options:
       + **Partition type** \- Specify if this partition dimension is an **Attribute** or a **Timestamp** partition type\.
       + **Attribute name** and **Dimension name** \- By default, AWS IoT Analytics will use the name of the message sample attribute you selected as an identifier for your attribute partition dimension\. Edit the attribute name to customize the name of your partition dimension\. You can use the dimension name in the `WHERE` clause to optimize query performance\.
-**Note**  
-The name of any partition attribute dimension is prefixed with `__partition_`\.
-For timestamp partition types, AWS IoT Analytics creates the following four dimensions with names `__year`, `__month`, `__day`, `__hour`\. 
+        + The name of any partition attribute dimension is prefixed with `__partition_`\.
+        + For timestamp partition types, AWS IoT Analytics creates the following four dimensions with names `__year`, `__month`, `__day`, `__hour`\. 
       + **Ordering** \- Rearrange your partition dimensions to improve the latency for your queries\.
 
       For **Timestamp format**, specify the format of your timestamp partition by matching the ingested timestamp from your message data\. You can choose one of AWS IoT Analytics listed format options, or specify one that matches the format of your data\. Learn more about specifying [date time formatters]( https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html)\. 

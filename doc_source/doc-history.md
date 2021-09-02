@@ -4,6 +4,10 @@ The following table describes the important changes to the *AWS IoT Analytics Us
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Region launch](https://docs.aws.amazon.com/general/latest/gr/iot-analytics.html) | AWS IoT Analytics is now available in the Asia Pacific \(Mumbai\) region\. | August 18, 2021 | 
+| [Query with `JOIN`](https://docs.aws.amazon.com/iotanalytics/latest/userguide/sql-support.html) | This update enables you to use `JOIN` to query an AWS IoT Analytics dataset\.  | July 27, 2021 | 
+| [Integration with AWS IoT SiteWise](https://docs.aws.amazon.com/iotanalytics/latest/userguide/dataset-itsw.html) | You can now use AWS IoT Analytics to query AWS IoT SiteWise data\. | July 27, 2021 | 
+| [Custom partitions](https://docs.aws.amazon.com/iotanalytics/latest/userguide/custom-partitioning.html) | AWS IoT Analytics now generally supports partitioning your data according to message attributes or attributes added through pipeline activities\.  | June 14, 2021 | 
 | [Reprocessing channnel messages](https://docs.aws.amazon.com/iotanalytics/latest/userguide/reprocessing.html) | This update enables you to reprocess the channel data in the specified Amazon S3 objects\. | December 15, 2020 | 
 | [Parquet schema](https://docs.aws.amazon.com/iotanalytics/latest/userguide/iotanalytics-schema.html) | AWS IoT Analytics data stores now support Parquet file format\. | December 15, 2020 | 
 | [Monitoring with CloudWatch Events](https://docs.aws.amazon.com/iotanalytics/latest/userguide/cloudwatch-events.html) | AWS IoT Analytics automatically publishes an event to Amazon CloudWatch Events when a runtime error occurs during an AWS Lambda activity\. | December 15, 2020 | 

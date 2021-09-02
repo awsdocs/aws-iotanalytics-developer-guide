@@ -50,4 +50,4 @@ Unprocessed channel messages are stored in an Amazon S3 bucket managed by AWS Io
 }
 ```
 
-If you make changes in the options or permissions of your customer\-managed channel storage, you might need to reprocess channel data to ensure that previously ingested data is included in data set contents\. See [Reprocessing channel data](https://docs.aws.amazon.com/iotanalytics/latest/userguide/reprocessing.html#aws-iot-analytics-reprocessing)\.
+If you make changes in the options or permissions of your customer\-managed channel storage, you might need to reprocess channel data to ensure that previously ingested data is included in dataset contents\. See [Reprocessing channel data](https://docs.aws.amazon.com/iotanalytics/latest/userguide/reprocessing.html#aws-iot-analytics-reprocessing)\.

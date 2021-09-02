@@ -71,6 +71,7 @@ Some AWS IoT Analytics API actions involve multiple resources\. For example, `Cr
 "Resource": [
     "resource1",
     "resource2"
+     ]
 ```
 
 To see a list of AWS IoT Analytics resource types and their ARNs, see [ Resources defined by AWS IoT Analytics](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsiotanalytics.html#awsiotanalytics-resources-for-iam-policies) in the *IAM User Guide*\. To learn with which actions you can specify the ARN of each resource, see [Actions defined by AWS IoT Analytics](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsiotanalytics.html#awsiotanalytics-actions-as-permissions)\.
@@ -87,7 +88,7 @@ AWS IoT Analytics does not provide any sevice\-specific condition keys, but it d
 
 ### Examples<a name="iam-id-based-policies-examples"></a>
 
-To view examples of AWS IoT Analytics identity\-based policies, see [Examples](#iam-id-based-policies-examples)\.
+To view examples of AWS IoT Analytics identity\-based policies, see [AWS IoT Analytics identity\-based policy examples](iam-policy-examples.md)\.
 
 ## AWS IoT Analytics resource\-based policies<a name="iam-resource-based-policies"></a>
 

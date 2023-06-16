@@ -1,5 +1,0 @@
-# AWS IoT Analytics quotas<a name="limits"></a>
-
- The *AWS General Reference Guide* provides the default quotas for AWS IoT Analytics for an AWS account\. Unless specified, each quota is per AWS Region\. For more information, see [AWS IoT Analytics endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/iot-analytics.html) and [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *AWS General Reference Guide*\.
-
-To request a service quota increase, submit a support case in the [Support center](https://console.aws.amazon.com/support/cases#/create?issueType=service-limit-increase&limitType=service-code-iot) console\. For more information, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*\.
